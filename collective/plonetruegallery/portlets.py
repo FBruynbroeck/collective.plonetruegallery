@@ -10,7 +10,6 @@ from collective.plonetruegallery import PTGMessageFactory as _
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.plonetruegallery.vocabularies import \
     GallerySearchabelTextSourceBinder
-from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from utils import getGalleryAdapter
 
 
@@ -218,7 +217,6 @@ class GalleryRenderer(base.Renderer):
 
 class GalleryAddForm(base.AddForm):
     schema = IGalleryPortlet
-    form_fields['gallery'].custom_widget = UberSelectionWidget
 
     label = _(u"gallery_portlet_add_form_title", default=u"Add Gallery")
     description = _(u"gallery_portlet_add_form_description",
@@ -231,7 +229,6 @@ class GalleryAddForm(base.AddForm):
 
 class GalleryEditForm(base.EditForm):
     schema = IGalleryPortlet
-    form_fields['gallery'].custom_widget = UberSelectionWidget
 
     label = _(u"gallery_portlet_edit_form_title",
         default=u"Edit Gallery Portlet")
