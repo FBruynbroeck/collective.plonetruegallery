@@ -1,6 +1,5 @@
 from zope import schema
 from zope.component import getMultiAdapter
-from zope.formlib import form
 from zope.interface import implements
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
@@ -218,7 +217,7 @@ class GalleryRenderer(base.Renderer):
 
 
 class GalleryAddForm(base.AddForm):
-    form_fields = form.Fields(IGalleryPortlet)
+    schema = IGalleryPortlet
     form_fields['gallery'].custom_widget = UberSelectionWidget
 
     label = _(u"gallery_portlet_add_form_title", default=u"Add Gallery")
@@ -231,7 +230,7 @@ class GalleryAddForm(base.AddForm):
 
 
 class GalleryEditForm(base.EditForm):
-    form_fields = form.Fields(IGalleryPortlet)
+    schema = IGalleryPortlet
     form_fields['gallery'].custom_widget = UberSelectionWidget
 
     label = _(u"gallery_portlet_edit_form_title",
